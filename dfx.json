@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "activities_calendar_backend": {
+      "main": "src/activities_calendar_backend/main.mo",
+      "type": "motoko"
+    },
+    "activities_calendar_frontend": {
+      "dependencies": [
+        "activities_calendar_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/activities_calendar_frontend/src/index.html"
+      },
+      "source": [
+        "src/activities_calendar_frontend/assets",
+        "dist/activities_calendar_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
