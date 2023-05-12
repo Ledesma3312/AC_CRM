@@ -25,7 +25,7 @@ actor ActivitiesCalendar {
   type Activity = HashMap.HashMap<Text, Info>;
 
   
-  var calendar = HashMap.HashMap<User, Activity>(32, Principal.equal, Principal.hash);
+  var calendar = HashMap.HashMap<User, Activity>(0, Principal.equal, Principal.hash);
 
   //funcion para obtener el usuario que realiza el llamado
   public shared(msg) func getUser() : async Principal {
@@ -42,7 +42,7 @@ actor ActivitiesCalendar {
 
     var finalActivity : Activity = switch resultActivity {
       case (null) {
-        HashMap.HashMap(32, Text.equal, Text.hash);
+        HashMap.HashMap(0, Text.equal, Text.hash);
       };
       case (?resultActivity) resultActivity;
     };
