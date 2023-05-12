@@ -10,6 +10,12 @@ actor ActivitiesCalendar {
 
   type User = Principal;
   
+  type DatosFecha = {
+    year : Nat;
+    month: Nat;
+    day: Nat;
+  };
+
   type Info = {
     hora : Text;
     desc : Text;
@@ -28,9 +34,9 @@ actor ActivitiesCalendar {
   };
   
   //funcion para agregar y actualizar las actividades de un usuario
-  public shared (msg) func saveActivity(year : Nat, month: Nat, day: Nat, info: Info) : async Info {
+  public shared (msg) func saveActivity(datosFecha: DatosFecha, info: Info) : async Info {
     let user : Principal = msg.caller;
-    let fecha : Text = Nat.toText(day) #"/"# Nat.toText(month) #"/"# Nat.toText(year);
+    let fecha : Text = Nat.toText(datosFecha.day) #"/"# Nat.toText(datosFecha.month) #"/"# Nat.toText(datosFecha.year);
 
     let resultActivity = calendar.get(user);
 
@@ -50,10 +56,10 @@ actor ActivitiesCalendar {
   };
 
   //funcion para remover una actividad en espesifico del usuario
-  public shared (msg) func removeActivity(year : Nat, month: Nat, day: Nat) {
+  public shared (msg) func removeActivity(datosFecha: DatosFecha) {
     let user : Principal = msg.caller;
     let resultActivity = calendar.get(user);
-    let fecha : Text = Nat.toText(day) #"/"# Nat.toText(month) #"/"# Nat.toText(year);
+    let fecha : Text = Nat.toText(datosFecha.day) #"/"# Nat.toText(datosFecha.month) #"/"# Nat.toText(datosFecha.year);
 
     var finalActivity : Activity = switch resultActivity {
       case (null) {
@@ -93,9 +99,9 @@ actor ActivitiesCalendar {
   };
 
   //funcion para consultar una actividad en espesifico
-  public query func getActivity(user : User, year : Nat, month: Nat, day: Nat) : async Info {
+  public query func getActivity(user : User, datosFecha: DatosFecha) : async Info {
     let resultActivity = calendar.get(user);
-    let fecha : Text = Nat.toText(day) #"/"# Nat.toText(month) #"/"# Nat.toText(year);
+    let fecha : Text = Nat.toText(datosFecha.day) #"/"# Nat.toText(datosFecha.month) #"/"# Nat.toText(datosFecha.year);
 
     var finalActivity : Activity = switch resultActivity {
       case (null) {
