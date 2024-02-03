@@ -16,4 +16,5 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   document.getElementById("greeting").innerText = greeting;
 
   return false;
-});
+}
+);
