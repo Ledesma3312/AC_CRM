@@ -18,6 +18,61 @@
         <input id="name" alt="Name" type="text" />
         <button type="submit">Click Me!</button>
       </form>
+      
+
+      <h1>Activities Calendar</h1>
+    <form id="addActivityForm">
+      <label for="activityDate">Fecha de la actividad:</label>
+      <input type="date" id="activityDate" name="activityDate"><br><br>
+
+      <label for="activityTime">Hora de la actividad:</label>
+      <input type="time" id="activityTime" name="activityTime"><br><br>
+
+      <label for="activityName">Nombre:</label>
+      <input type="text" id="activityName" name="activityName"><br><br>
+
+      <label for="activityCorp">Empresa:</label>
+      <input type="text" id="activityCorp" name="activityCorp"><br><br>
+
+      <label for="activityJob">Trabajo:</label>
+      <input type="text" id="activityJob" name="activityJob"><br><br>
+
+      <label for="activityPhone">Teléfono:</label>
+      <input type="tel" id="activityPhone" name="activityPhone"><br><br>
+
+      <label for="activityEmail">Correo Electrónico:</label>
+      <input type="email" id="activityEmail" name="activityEmail"><br><br>
+
+      <button type="submit">Agregar actividad</button>
+  </form>
+
+
+      <h2>Actividades</h2>
+      <table id="activityTable">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Nombre</th>
+                <th>Empresa</th>
+                <th>Trabajo</th>
+                <th>Teléfono</th>
+                <th>Correo Electrónico</th>
+            </tr>
+        </thead>
+        <tbody id="activityTableBody">
+            <!-- Aquí se mostrarán las actividades existentes -->
+        </tbody>
+    </table>
+
+
+      <!-- formulario HTML para Eliminar una Actividad-->
+      <form id="removeActivityForm">
+        <label for="removeActivityDate">Fecha de la actividad a eliminar:</label>
+        <input type="date" id="removeActivityDate" name="removeActivityDate">
+        <button type="submit">Eliminar actividad</button>
+      </form>
+
       <section id="greeting"></section>
     </main>
   </body>
